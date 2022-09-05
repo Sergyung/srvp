@@ -5,7 +5,7 @@
 	if (!empty($_POST[division])) {
 		$division = htmlspecialchars($_POST['division']);
 	} else {
-		die('Вы забыли ввести название подразделения. <a href="pageDivision.php">RETUR</a>');
+		die('Вы забыли ввести название подразделения. <a href="pageDivision.php">Вернуться назад</a>');
 	}
 
 	$query = "INSERT INTO divisions (division) VALUES('$division')";
