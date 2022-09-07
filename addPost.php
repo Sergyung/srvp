@@ -11,12 +11,6 @@
 
 	}
 
-	// if (!empty($_POST['project_number'])) {
-	// 	$project_number = htmlspecialchars($_POST['project_number']);
-	// } else {
-	// 	die('Вы забыли ввести проект судна. <a href="pagePost.php">Вернуться на предыдущую страницу</a>');
-	// }
-
 	$idDivision = ($_POST['idDivision']);
 
 	$sql_ship = "INSERT INTO positions (post, idDivision)  VALUES ('$posts','$idDivision')";

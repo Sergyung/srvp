@@ -42,27 +42,40 @@
 			<label>Отчество</label>
 			<input type="text" name="middleName">
 		</p>
+		<p>
+			<label>Дата рождения</label>
+			<input type="date" name="dateBirth">
+		</p>
+		<p>
+			<label>Дата принятия на работу</label>
+			<input type="date" name="dateJob">
+		</p>
+
 			<label>Подразделение</label>
 			<select name="division" id="division-list" onchange="getPost(this.value);">
                 <option value disabled selected>Выбери лодразделение</option>
                 <?php
-                	$query = "SELECT * FROM divisions"; // запрос на выборку
+                	$query = "SELECT * FROM divisions"; 
 					$result = mysqli_query($link, $query);
 					 
-					while($row = $result->fetch_assoc())// получаем все строки в цикле по одной
+					while($row = $result->fetch_assoc())
 					{
-					    echo '<option value ='.$row['id'].'>'.$row['division'].'</option>';// выводим данные
+					    echo '<option value ='.$row['id'].'>'.$row['division'].'</option>';
 					}
 				?>
 			</select>
-		<p>
+		
 		<p>
 			<label>Должность</label>
-            <select name="state" id="post-list">
+            <select name="posts" id="post-list">
                 <option value="">Выберите должность</option>
             </select>
+		</p>
+		<p>
+			<label>Дата назначения</label>
+			<input type="date" name="datePost">
 		</p>	
-
+		<p>
 			<input type="submit" name="enter_ship" value="Записать">
 		</p>
 	</form>

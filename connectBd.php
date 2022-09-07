@@ -1,8 +1,8 @@
 <?php
-	$host = 'localhost'; // имя хоста
-	$user = 'root';      // имя пользователя
-	$pass = '';          // пароль
-	$name = 'srvp';      // имя базы данных
+	$host = 'localhost'; 
+	$user = 'root';      
+	$pass = '';          
+	$name = 'srvp';      
 	
 	$link = mysqli_connect($host, $user, $pass, $name);
 
