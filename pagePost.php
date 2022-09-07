@@ -22,17 +22,17 @@
 			<select name="idDivision">
 	        	<option></option>
 	        	<?php
-	        		$query = "SELECT * FROM divisions"; // запрос на выборку
+	        		$query = "SELECT * FROM divisions"; 
 					$result = mysqli_query($link, $query);
 					 
-					while($row = $result->fetch_assoc())// получаем все строки в цикле по одной
+					while($row = $result->fetch_assoc())
 					{
-					    echo '<option value ='.$row['id'].'>'.$row['division'].'</option>';// выводим данные
+					    echo '<option value ='.$row['id'].'>'.$row['division'].'</option>';
 					}
 				?>
 			</select>
 		<p>
-			<!-- <input type="button" name="button" > -->
+			
 			<input type="submit" name="enter_ship" value="Записать">
 		</p>
 	</form>
