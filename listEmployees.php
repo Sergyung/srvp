@@ -2,7 +2,7 @@
 
 require_once("connectBd.php");
 
-$query = "SELECT lastName, firstName, middleName, post FROM users INNER JOIN positions ON positions.id = users.postID ORDER BY postID"; 
+$query = "SELECT lastName, firstName, middleName, post, division FROM users INNER JOIN positions ON positions.id = users.postID INNER JOIN divisions ON divisions.id = positions.idDivision ORDER BY postID"; 
 
 $result = mysqli_query($link, $query);
 
@@ -27,7 +27,7 @@ echo '<p><a href="index.php">Возврат назад</a></p>';
 echo '<table>';
 $i=1;
 while($row = $result->fetch_assoc()) {
-	echo '<tr><td>'.$i.'</td><td>'.$row['lastName'].' '.substr($row['firstName'], 0, 2).'.'.substr($row['middleName'], 0, 2).'.'.'</td><td>'.$row['post'].'</td></tr>'; // substr("abcdef", -3, 1)
+	echo '<tr><td>'.$i.'</td><td>'.$row['lastName'].' '.substr($row['firstName'], 0, 2).'.'.substr($row['middleName'], 0, 2).'.'.'</td><td>'.$row['post'].'</td><td>'.$row['division'].'</td></tr>'; 
 	$i++;
 }
 
