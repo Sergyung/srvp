@@ -8,7 +8,7 @@
 <body>
 	<p><a href="adminPanel.php">Администратор</a></p>
 	<p><a href="#">Подразделения</a></p>
-	<p><a href="#">Личный состав</a></p>
-	<p><a href="#">Вакансии</a></p>
+	<p><a href="listEmployees.php">Личный состав</a></p>
+	<p><a href="jobOpenings.php">Вакансии</a></p>
 </body>
 </html>
