@@ -7,7 +7,7 @@
 </head>
 <body>
 	<p><a href="adminPanel.php">Администратор</a></p>
-	<p><a href="#">Подразделения</a></p>
+	<p><a href="listDivisions.php">Подразделения</a></p>
 	<p><a href="listEmployees.php">Личный состав</a></p>
 	<p><a href="jobOpenings.php">Вакансии</a></p>
 </body>
