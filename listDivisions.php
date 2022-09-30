@@ -11,6 +11,7 @@ echo '<h2>Список подразделений</h2>';
 echo '<p><a href="index.php">Возврат назад</a></p>';
 
 echo '<table>';
+	echo '<tr><th>№ п/п</th><th>Название подразделения</th><th>Всего должностей</th><th>Занято должностей</th></tr>'; 
 $i=1;
 while($row = $result->fetch_assoc()) {
 	echo '<tr><td>'.$i.'</td><td>'.$row['division'].'</td><td>'.$row['divCount'].'</td><td>'.$row['postCount'].'</td></tr>'; 
