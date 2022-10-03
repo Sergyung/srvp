@@ -11,14 +11,14 @@ $row1 = $result1->fetch_assoc();
 //$row = mysqli_fetch_assoc($result);
 echo '<h2>'.$row1['division'].'</h2>';
 
-$query = "SELECT post FROM positions WHERE idDivision = '$divi'" ; 
+$query = "SELECT post, lastName FROM positions LEFT JOIN users ON users.postID = positions.id WHERE idDivision = '$divi' ORDER BY positions.id" ; 
 
 $result = mysqli_query($link, $query);
-echo '<table>';
-//echo '<tr><th>№ п/п</th><th>Название подразделения</th><th>Всего должностей</th><th>Занято должностей</th></tr>'; 
+echo '<table border="1">';
+echo '<tr><th>№<br>п/п</th><th>Название должности</th><th>Фамилия<br> и инициалы</th></tr>'; 
 $i=1;
 while($row = $result->fetch_assoc()) {
-	echo '<tr><td>'.$i.'</td><td>'.$row['post'].'</td></tr>'; 
+	echo '<tr><td>'.$i.'</td><td>'.$row['post'].'</td><td>'.$row['lastName'].'</td></tr>'; 
  	$i++;
 }
 
