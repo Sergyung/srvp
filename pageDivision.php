@@ -11,7 +11,7 @@ $row1 = $result1->fetch_assoc();
 
 echo '<h2>'.$row1['division'].'</h2>';
 
-$query = "SELECT * FROM positions LEFT JOIN users ON users.postID = positions.id WHERE idDivision = '$divi' ORDER BY positions.id" ; 
+$query = "SELECT users.id AS idu, lastName, firstName, middleName, occupied, post FROM positions LEFT JOIN users ON users.postID = positions.id WHERE idDivision = '$divi' ORDER BY positions.id" ; 
 
 $result = mysqli_query($link, $query);
 echo '<table>';
@@ -19,7 +19,7 @@ echo '<tr><th>№<br>п/п</th><th>Название должности</th><th>�
 $i=1;
 while($row = $result->fetch_assoc()) {
 
-	if ($row[occupied] == 1) {$text = '<a href="#">'.$row['lastName'].' '.substr($row['firstName'], 0, 2).'.'.substr($row['middleName'], 0, 2).'.</a>';} else {$text = '';};
+	if ($row[occupied] == 1) {$text = '<a href="pageUser.php?user='.$row['idu'].'">'.$row['lastName'].' '.substr($row['firstName'], 0, 2).'.'.substr($row['middleName'], 0, 2).'.</a>';} else {$text = '';};
 	
 	echo '<tr><td>'.$i.'</td><td><a href="#">'.$row['post'].'</a></td><td>'.$text.'</td></tr>'; 
 
