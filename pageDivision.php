@@ -1,45 +1,32 @@
 <?php
-	session_start();
 
-	require 'connectBd.php';
-			
+require_once("connectBd.php");
+
+$divi = $_GET['divi'];
+
+$query1 = "SELECT division FROM divisions WHERE id = '$divi'" ; 
+
+$result1 = mysqli_query($link, $query1);
+$row1 = $result1->fetch_assoc();
+
+echo '<h2>'.$row1['division'].'</h2>';
+
+$query = "SELECT * FROM positions LEFT JOIN users ON users.postID = positions.id WHERE idDivision = '$divi' ORDER BY positions.id" ; 
+
+$result = mysqli_query($link, $query);
+echo '<table>';
+echo '<tr><th>№<br>п/п</th><th>Название должности</th><th>Фамилия<br> и инициалы</th></tr>'; 
+$i=1;
+while($row = $result->fetch_assoc()) {
+
+	if ($row[occupied] == 1) {$text = '<a href="#">'.$row['lastName'].' '.substr($row['firstName'], 0, 2).'.'.substr($row['middleName'], 0, 2).'.</a>';} else {$text = '';};
+	
+	echo '<tr><td>'.$i.'</td><td><a href="#">'.$row['post'].'</a></td><td>'.$text.'</td></tr>'; 
+
+ 	$i++;
+}
+
+echo '</table>';
+echo '<p><a href="listDivisions.php">Возврат назад</a></p>';
+
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Редактирование подразделений</title>
-</head>
-<body>
-	<form action="addDivision.php" method="post">
-		<p>
-			<label>Подразделение</label>
-			<input type="text" name="division">
-		</p>
-		<p>
-			<!-- <input type="button" name="button" > -->
-			<input type="submit" name="enter_ship" value="Записать">
-		</p>
-	</form>
-	<p><a href="adminPanel.php">Возврат назад</a></p>
-
-	<br>
-		<div class="list_auto"> 
-		<div class="autos">
-		<table>	
-			<?php
-				$sql_div = "SELECT division FROM divisions";
-				$result = mysqli_query($link, $sql_div) or die( mysqli_error($link) );
-				$i = 1;			
-				while ($row_division = mysqli_fetch_assoc($result)) {
-					echo '<tr><td>'.$i.'</td><td><a href = "#">'.$row_division['division'].'</a></td></tr>';
-				$i++;
-				}
-			?>
-		</table>
-		</div>
-</body>
-</html>
-

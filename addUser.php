@@ -36,7 +36,7 @@
 	$result1 = mysqli_query($link, $sql_post) or die( mysqli_error($link) );
 
 	if (isset($result)) {
-		echo '<h4>Запрос на добавление должности в базу данных прошел. <a href="pageUser.php">Вернуться на предыдущую страницу</a></h4>';
+		echo '<h4>Запрос на добавление должности в базу данных прошел. <a href="pageAddUser.php">Вернуться на предыдущую страницу</a></h4>';
 	}
 
 ?>

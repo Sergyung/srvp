@@ -12,7 +12,7 @@
 	$result = mysqli_query($link, $query) or die(mysqli_error($link));
 	
 	if (isset($result)) {
-		echo '<h4>Запрос на добавление судна в базу данных прошел. <a href="pageDivision.php">Вернуться</a></h4>';
+		echo '<h4>Запрос на добавление судна в базу данных прошел. <a href="pageAddDivision.php">Вернуться</a></h4>';
 	}
 		
 ?>

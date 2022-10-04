@@ -18,7 +18,7 @@
 	$result = mysqli_query($link, $sql_ship) or die( mysqli_error($link) );
 
 	if (isset($result)) {
-		echo '<h4>Запрос на добавление должности в базу данных прошел. <a href="pagePost.php">Вернуться на предыдущую страницу</a></h4>';
+		echo '<h4>Запрос на добавление должности в базу данных прошел. <a href="pageAddPost.php">Вернуться на предыдущую страницу</a></h4>';
 	}
 
 ?>

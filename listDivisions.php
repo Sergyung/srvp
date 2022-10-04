@@ -14,7 +14,7 @@ echo '<table>';
 	echo '<tr><th>№ п/п</th><th>Название подразделения</th><th>Всего должностей</th><th>Занято должностей</th></tr>'; 
 $i=1;
 while($row = $result->fetch_assoc()) {
-	echo '<tr><td>'.$i.'</td><td><a href="descriptionDivision.php?divi='.$row['idd'].'">'.$row['division'].'</a></td><td>'.$row['divCount'].'</td><td>'.$row['postCount'].'</td></tr>'; 
+	echo '<tr><td>'.$i.'</td><td><a href="pageDivision.php?divi='.$row['idd'].'">'.$row['division'].'</a></td><td>'.$row['divCount'].'</td><td>'.$row['postCount'].'</td></tr>'; 
 	$i++;
 }
 
